@@ -29,4 +29,14 @@ See examples/BTC_price.mlx or BTC_price.m
 ### Example (2) - Holocene South American Paleoprecipitation ###
 See examples/paleoprecipitation.mlx or paleoprecipitation.m
 
-## Some Foundings ##
+## Detailing ##
+
+Empirical Mode Decomposition (EMD), decomposes a signal into a finite set of Intrinsic Mode Functions (IMFs) and residual series, with each IMF representing a scale of data variability, where the sum of the IMFs and the residual component represent the full data.
+
+First of all, the time series upper and lower envelope is computed and thus, averaged and subtracted from the signal, generating a residual time series, this residual time series, becomes an IMF. So, the process above is repeated up to number of time series zero crossing or tolerance is no more verified.
+
+The statistical significance test for the IMFs, will verify the capacity of the IMFs in representing signal band. If the band is too wide, one can say that the signal is "contaminated" with white noise, or that the IMF is unable to represent the signal in a given band. In physics and engineering studies is extremely important that the EMD
+is able to decompose correctly the signal.
+
+
+wavelet analysis, however without the fourier cons
