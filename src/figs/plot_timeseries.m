@@ -1,5 +1,5 @@
 function plot_timeseries(emd_obj)
-    addpath(fullfile(pwd,'src','figs'),'-end');
+    %addpath(fullfile(pwd,'src','figs'),'-end');
     
     %% Maximum number of IMFs
     [n,idx,opt] = return_nemd(emd_obj);
@@ -10,7 +10,7 @@ function plot_timeseries(emd_obj)
         mkdir(odir)
     end
     %%
-    letter = {'(a)','(b)','(c)','(d)','(e)','(f)','(g)','(h)','(i)','(j)'};
+    letter = {'(a)','(b)','(c)','(d)','(e)','(f)','(g)','(h)','(i)','(j)','(k)','(l)'};
     for i = 1:n+1
         ofile = fullfile(odir,strcat(num2str(i),'.png'));
         if i <= n
@@ -34,11 +34,12 @@ function plot_data(time, data, ylab, opt, ofile)
     
     c = parula(100); cc = randi([1,100]);
     
-    mdata = nanmedian(data,2);
-    lower = mdata-quantile(data,.25,2);
-    upper = quantile(data,.75,2)-mdata;
+    mdata = nanmean(data,2);
+    %lower = mdata-quantile(data,.25,2);
+    %upper = quantile(data,.75,2)-mdata;
+    sdata = nanstd(data,[],2);
     
-    h = shadedErrorBar(time,mdata,[lower upper],...
+    h = shadedErrorBar(time,mdata,sdata,...
         'lineprops',{'-k','color',c(cc,:),'Linewidth',2},'transparent',true,...
         'patchSaturation',.1);
     hold on
@@ -53,7 +54,11 @@ function plot_data(time, data, ylab, opt, ofile)
     end
     lbls{1} = '';lbls{end} = '';
     
-    set(gca,'Xlim',[min(time),max(time)],'Linewidth',2,'fontsize',15,...
+    %xlimm = [min(time),max(time)];
+    xlimm = [0,9000]; xtk = [0:1000:9000]; xtkl = [0:1:9];
+    
+    set(gca,'Xlim',xlimm,'XTick',xtk,'XTickLabel',xtkl,'Linewidth',2,...
+        'fontsize',15,...
         'box','off','Ylim',[mn mx],'YTick',yy,'YTickLabel',lbls);
     ytickangle(90);
     ylabel(ylab,'fontsize',20,'Color','black');
@@ -62,7 +67,12 @@ function plot_data(time, data, ylab, opt, ofile)
         set(gca,'Xcolor','black','XaxisLocation','bottom','YaxisLocation',...
             'left');
         xtickangle(180)
-        xlabel('time');
+        xlabel('time (ka BP)');
+        
+        xlh = get(gca,'xlabel');                                                      % Object Information
+        xlp = get(xlh, 'Position');
+        set(xlh, 'Rotation',180, 'Position',xlp, 'VerticalAlignment','middle')
+        
     elseif opt == 2
         set(gca,'Xcolor','none','XaxisLocation','bottom','YaxisLocation',...
             'right');
@@ -72,19 +82,21 @@ function plot_data(time, data, ylab, opt, ofile)
     elseif opt == 4
         set(gca,'Xcolor','black','XaxisLocation','top','YaxisLocation',...
             'right');
-        xlabel('time');
+        xlabel('time (ka BP)');
+    elseif opt == 5
+        set(gca,'Xcolor','black','XaxisLocation','top','YaxisLocation',...
+            'left');
+        xlabel('time (ka BP)');
     end
     
     set(gcf, 'color', 'none');
     set(gca, 'color', 'none');
-    disp(ofile)
+    %disp(ofile)
     export_fig(gcf,ofile,'-dpng','-transparent','-nocrop','-r250');
     
     close all
     
 end
-
-
 
 function [data] = return_data(emd_obj,idx,comp)
 
@@ -133,6 +145,6 @@ function [nemd,idx,opt] = return_nemd(emd_obj)
     if mod(length(opt)+1,2)==0
         opt = cat(1,opt,4);
     else
-        opt = cat(1,opt,1);
+        opt = cat(1,opt,5);
     end
 end

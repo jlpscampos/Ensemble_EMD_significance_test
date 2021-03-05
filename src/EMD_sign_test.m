@@ -15,7 +15,8 @@ classdef EMD_sign_test
             %  imf - Intrinsic Mode Functions - (float array dims(m x n))
             %  trend- Residual series         - (float array dims(m))
             %  time - Time array              - (integer or float array dims(m)
-            addpath(fullfile('src','spectral'));
+            
+            %addpath(fullfile('src','spectral'));
             
             warning('off','all')
             self.imfs = imf;                            % Intrinsic Mode Functions
