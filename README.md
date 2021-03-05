@@ -4,7 +4,7 @@ This project computes the Ensemble Empirical Decomposition (EEMD), and their sig
 * (1) Given the time series' signal to noise ratio, it creates n amounts of surrogate time series and then, evaluates the EEMD and the significance test.
 * (2) Given a signal with observational uncertainty previoulsy simulated, it evaluates the EEMD and the significance test (Suitable for paleoclimatic data).
 
-This project uses some built in matlab functions. So, it is advisable to run this project with matlab versions after R2017a.
+This project uses some builtin matlab functions. So, it is advisable to run this project with matlab versions after R2017a.
 
 ## How to run ##
 
@@ -13,14 +13,14 @@ This project uses some built in matlab functions. So, it is advisable to run thi
 
 > EEMD = EMD_timeseries(time,serie,opt);
 
-where time is the *time* axis, an array of float, integers or datetime object, *serie* is the input data and *opt* is the interpolating method 
-for the envelope, opt can be '-pchip' for raw data and '-spline' for smoothed data 
+where time is the **time** axis, an array of float, integers or datetime object, **serie** is the input data and **opt** is the interpolating method 
+for the envelope, opt can be 'pchip' for raw data and 'spline' for smoothed data 
 
 * (iii) A figure for the significance test can be obtained by calling the function:
 
 > plot_sign(EEMD, title, opt);
 
-where *EEMD* is the Ensemble EMD object, title is the figure title string and *opt* is an option to plot the 95% confidence bound ellipsoid of 
+where **EEMD** is the Ensemble EMD object, **title** is the figure title string and **opt** is an option to plot the 95% confidence bound ellipsoid of 
 the surrogates IMFs, opt can be '-1sigma' to show the ellipsoid and otherwise to not show.
 
 ### Example (1) - BTC price ###
