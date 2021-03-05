@@ -1,7 +1,11 @@
 classdef EMD_timeseries
     %% 
     % This class computes the Empirical Mode Decomposition and stores
-    % relevant data. 
+    % relevant data.
+    %
+    % Usage:
+    %       EEMD = EMD_timeseries(time, data, 'pchip');
+    %       EEMD = EMD_timeseries(tiem, data, 'spline');
     
     properties
         data = [];          % input data
