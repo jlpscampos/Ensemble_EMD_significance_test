@@ -4,7 +4,7 @@ This project computes the Ensemble Empirical Decomposition (EEMD), and their sig
 * (1) Given a signal to noise ratio, it creates n amounts of surrogate time series and then evaluates the EEMD and the significance test.
 * (2) Given a signal with observational uncertainty previoulsy simulated, it evaluates the EEMD and the significance test (Suitable for paleoclimatic data).
 
-This project uses some built in matlab functions. So, it is advisable to run this project with the version after R2017a.
+This project uses some built in matlab functions. So, it is advisable to run this project with matlab versions after R2017a.
 
 ## How to run ##
 
