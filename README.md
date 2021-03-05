@@ -1,7 +1,7 @@
 # Ensemble Empirical Mode Decomposition Significance Test #
 
 This project computes the Ensemble Empirical Decomposition (EEMD), and their significance test based on t-student distribution in two ways:
-* (1) Given a signal to noise ratio, it creates n amounts of surrogate time series and then evaluates the EEMD and the significance test.
+* (1) Given the time series' signal to noise ratio, it creates n amounts of surrogate time series and then evaluates the EEMD and the significance test.
 * (2) Given a signal with observational uncertainty previoulsy simulated, it evaluates the EEMD and the significance test (Suitable for paleoclimatic data).
 
 This project uses some built in matlab functions. So, it is advisable to run this project with matlab versions after R2017a.
