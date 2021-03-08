@@ -11,14 +11,13 @@ This project uses some builtin matlab functions. So, it is advisable to run this
 * (i)  Create the surrogate time series or simulates the observational uncertainty. See the file *BTC.mlx* in folder *example/*.
 * (ii) call the class EMD_timeseries as:
 
-> `<EEMD = EMD_timeseries(time,serie,opt);>`
+`EEMD = EMD_timeseries(time,serie,opt);`
 
-where time is the **time** axis, an array of float, integers or datetime object, **serie** is the input data and **opt** is the interpolating method 
-for the envelope, opt can be 'pchip' for raw data and 'spline' for smoothed data 
+where time is the **time** axis, an array of floats, integers or datetime object, **serie** is the time series data that can be a single array or a matrix with dimensions (mxn), with the rows with the same size of the time axis and **opt** is the interpolating method for the envelope, opt can be 'pchip' for raw data and 'spline' for smoothed data 
 
 * (iii) A figure for the significance test can be obtained by calling the function:
 
-> `<plot_sign(EEMD, title, opt);>`
+`plot_sign(EEMD, title, opt);`
 
 where **EEMD** is the Ensemble EMD object, **title** is the figure title string and **opt** is an option to plot the 95% confidence bound ellipsoid of 
 the surrogates IMFs, opt can be '-1sigma' to show the ellipsoid and otherwise to not show.
