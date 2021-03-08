@@ -8,26 +8,19 @@ This project uses some builtin matlab functions. So, it is advisable to run this
 
 ## How to run ##
 
-* (i)  Create the surrogate time series or simulates the observational uncertainty. You can use the script sym_ts.m in folder resources.
+* (i)  Create the surrogate time series or simulates the observational uncertainty. See the file *BTC.mlx* in folder *example/*.
 * (ii) call the class EMD_timeseries as:
 
-> EEMD = EMD_timeseries(time,serie,opt);
+`EEMD = EMD_timeseries(time,serie,opt);`
 
-where time is the **time** axis, an array of float, integers or datetime object, **serie** is the input data and **opt** is the interpolating method 
-for the envelope, opt can be 'pchip' for raw data and 'spline' for smoothed data 
+where time is the **time** axis, an array of floats, integers or datetime object, **serie** is the time series data that can be a single array or a matrix with dimensions (mxn), with the rows with the same size of the time axis and **opt** is the interpolating method for the envelope, opt can be 'pchip' for raw data and 'spline' for smoothed data 
 
 * (iii) A figure for the significance test can be obtained by calling the function:
 
-> plot_sign(EEMD, title, opt);
+`plot_sign(EEMD, title, opt);`
 
 where **EEMD** is the Ensemble EMD object, **title** is the figure title string and **opt** is an option to plot the 95% confidence bound ellipsoid of 
 the surrogates IMFs, opt can be '-1sigma' to show the ellipsoid and otherwise to not show.
-
-### Example (1) - BTC price ###
-See examples/BTC_price.mlx or BTC_price.m
-
-### Example (2) - Holocene South American Paleoprecipitation ###
-See examples/paleoprecipitation.mlx or paleoprecipitation.m
 
 ## Detailing ##
 
@@ -35,5 +28,13 @@ Empirical Mode Decomposition (EMD), decomposes a signal into a finite set of Int
 
 First of all, the time series upper and lower envelope is computed and thus, averaged and then subtracted from the signal, generating a residual time series, this residual time series, becomes an IMF. So, the process above is repeated up to number of time series zero crossing or tolerance (between the full series and residual series - relative tolerance) is no more verified.
 
+The figure bellow shows how EEMD decomposes the signal into a set of IMFs.
+
+![plot](https://github.com/jlpscampos/Ensemble_EMD_significance_test/blob/main/examples/all.png)
+
 The statistical significance test for the IMFs, will verify the capacity of the IMFs in representing signal band. If the band is too wide, one can say that the signal is "contaminated" with white noise, or that the IMF is unable to represent the signal in a given band. In physics and engineering studies it is extremely important that the EMD
 is able to decompose correctly the signal. 
+
+The figure bellow shows the EEMD significance test. The blue and red curves represent the 95% and 99% significance range, values outside this range are statiscally significant at the level of 95% and 99% respectivelly. 
+
+![plot](https://github.com/jlpscampos/Ensemble_EMD_significance_test/blob/main/examples/sign_btc.png)
