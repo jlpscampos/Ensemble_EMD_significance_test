@@ -32,8 +32,8 @@ The figure bellow shows how EEMD decomposes the signal into a set of IMFs.
 
 ![plot](https://github.com/jlpscampos/Ensemble_EMD_significance_test/blob/main/examples/all.png)
 
-The statistical significance test for the IMFs, will verify the capacity of the IMFs in representing signal band. If the band is too wide, one can say that the signal is "contaminated" with white noise, or that the IMF is unable to represent the signal in a given band. In physics and engineering studies it is extremely important that the EMD
-is able to decompose correctly the signal. 
+The statistical significance test for the IMFs, will verify the capacity of the IMFs in representing signal band. If the band is too wide, one can say that the signal is "contaminated" with white noise, or that the IMF is unable to represent the signal in a given band. In physics and engineering studies, it is extremely important that the EMD
+is able to correctly decompose the signal. 
 
 The figure bellow shows the EEMD significance test. The blue and red curves represent the 95% and 99% significance range, values outside this range are statiscally significant at the level of 95% and 99% respectivelly. 
 
