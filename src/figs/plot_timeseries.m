@@ -32,7 +32,6 @@ function plot_timeseries(emd_obj)
 end
 
 function plot_data(time, data, ylab, opt, ofile)
-    addpath(fullfile('C:','Users','jlpsc','Documents','MATLAB','export_fig'));
 
     figure('Color','white','Position',[0 0 1000 400],'visible','off');
     
