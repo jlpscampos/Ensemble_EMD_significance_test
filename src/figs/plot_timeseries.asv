@@ -1,5 +1,6 @@
 function plot_timeseries(emd_obj)
 
+
     %% Maximum number of IMFs
     [n,idx,opt] = return_nemd(emd_obj);
     
@@ -87,7 +88,7 @@ function plot_data(time, data, ylab, opt, ofile)
         set(gca,'Xcolor','black','XaxisLocation','bottom','YaxisLocation',...
             'left');
         xtickangle(180)
-        xlabel('time');
+        xlabel('time (ka BP)');
         
         xlh = get(gca,'xlabel');                                                      % Object Information
         xlp = get(xlh, 'Position');
@@ -150,7 +151,7 @@ function [nemd,idx,opt] = return_nemd(emd_obj)
     idx = find(nbins==pos);
     
     opt = [];
-    for i = 1:nemd+1
+    for i = 1:nemd
         if mod(i,2) == 0
             opt = cat(1,opt,2);
         else

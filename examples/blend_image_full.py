@@ -6,7 +6,7 @@ from PIL import ImageDraw
 base='tmp'
 #fig_list = []
 images = []
-for i in range(8,0,-1):
+for i in range(12,0,-1):
     fig_list = os.path.join(base,'%d.png'%(i))
     images.append(Image.open(fig_list))
 
