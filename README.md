@@ -37,4 +37,7 @@ is able to decompose correctly the signal.
 
 The figure bellow shows the EEMD significance test. The blue and red curves represent the 95% and 99% significance range, values outside this range are statiscally significant at the level of 95% and 99% respectivelly. 
 
-![plot](https://github.com/jlpscampos/Ensemble_EMD_significance_test/blob/main/examples/sign_btc.png)
+<p align="center">
+<![plot](https://github.com/jlpscampos/Ensemble_EMD_significance_test/blob/main/examples/sign_btc.png)>
+</p>
+
